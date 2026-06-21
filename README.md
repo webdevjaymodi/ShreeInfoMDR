@@ -155,17 +155,6 @@ This repository follows a maintainable static-site approach:
 - Validate local references before deployment.
 - Format code before committing changes.
 
-## Vercel Deployment
-
-This project is a static site served directly from the repository root. The `vercel.json` file disables a build step and sets the output directory to `.` so Vercel serves `index.html`, `assets/`, and `images/` from the root instead of looking for a `public` folder.
-
-```json
-{
-  "buildCommand": null,
-  "outputDirectory": "."
-}
-```
-
 ## Deployment
 
 The project can be deployed to any static hosting provider, including:
