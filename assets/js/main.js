@@ -40,12 +40,18 @@ new Swiper(".testiSwiper", {
 
 // ── Counter Animation
 function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const decimals = Number(el.dataset.decimals || 0);
   const target = parseInt(el.dataset.target);
   const duration = 2000;
   const step = target / (duration / 16);
   let current = 0;
   const timer = setInterval(() => {
     current = Math.min(current + step, target);
+    el.textContent = current.toLocaleString(undefined, {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    });
     el.textContent = Math.floor(current).toLocaleString();
     if (current >= target) clearInterval(timer);
   }, 16);

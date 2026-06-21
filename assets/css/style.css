@@ -1101,3 +1101,41 @@ section {
   color: rgba(255, 255, 255, 0.65);
   margin-bottom: 36px;
 }
+
+.stats-grid {
+  align-items: stretch;
+}
+
+.stat-value {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.stat-rating {
+  align-items: center;
+}
+
+.stat-rating .plus {
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.stat-review-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.stat-review-link:hover {
+  color: #fff;
+}
