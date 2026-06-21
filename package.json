@@ -1,0 +1,9 @@
+{
+  "name": "shree-info-mdr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Premium static landing page for Shree Infotech Mundra.",
+  "scripts": {
+    "build": "node scripts/build-vercel.js"
+  }
+}
