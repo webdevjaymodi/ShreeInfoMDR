@@ -10,7 +10,7 @@ This website presents Shree Infotech as a professional local technology partner 
 
 - **Modern responsive UI** built with Bootstrap 5 and custom brand styling.
 - **Clean asset architecture** with HTML, CSS, and JavaScript separated into dedicated files.
-- **React/Vite-powered hero image slider** with automatic rotation and manual dot navigation.
+- **Hero image slider** with automatic rotation and manual dot navigation.
 - **Product and service showcase** with lazy-loaded images for better page performance.
 - **Animated counters and scroll effects** using AOS and Intersection Observer.
 - **WhatsApp-first inquiry flow** for fast customer communication.
@@ -22,9 +22,9 @@ This website presents Shree Infotech as a professional local technology partner 
 
 | Layer        | Technology                      |
 | ------------ | ------------------------------- |
-| Markup       | HTML5, React JSX                |
+| Markup       | HTML5                           |
 | Styling      | CSS3, Bootstrap 5, Google Fonts |
-| Interactions | React, Vite, Vanilla JavaScript |
+| Interactions | Vanilla JavaScript              |
 | Icons        | Font Awesome                    |
 | Animations   | AOS, Swiper                     |
 | Deployment   | Static hosting compatible       |
@@ -34,17 +34,12 @@ This website presents Shree Infotech as a professional local technology partner 
 ```text
 ShreeInfoMDR/
 ├── assets/
-│   └── css/
-│       └── style.css      # Brand theme, layouts, responsive styling, utilities
-├── src/
-│   ├── components/        # React section components
-│   ├── data/              # Section markup/data modules
-│   ├── App.jsx            # React application shell
-│   ├── enhancements.js    # Browser behavior and integrations
-│   └── main.jsx           # React/Vite entry point
+│   ├── css/
+│   │   └── style.css      # Brand theme, layouts, responsive styling, utilities
+│   └── js/
+│       └── main.js        # Slider, counters, form behavior, scroll interactions
 ├── images/                # Product, service, hero, and brand images
-├── index.html             # Vite HTML entry
-├── vite.config.js         # Vite config and static image copy plugin
+├── index.html             # Main landing page markup
 └── README.md              # Project documentation
 ```
 
@@ -71,7 +66,7 @@ You can also open `index.html` directly in a browser, but running a local server
 ### Format files
 
 ```bash
-npx --yes prettier --write index.html assets/css/style.css src/**/*.jsx src/**/*.js README.md package.json vite.config.js vercel.json
+npx --yes prettier --write index.html assets/css/style.css assets/js/main.js
 ```
 
 ### Validate local asset references
@@ -129,18 +124,10 @@ Primary CSS variables are defined at the top of the stylesheet, making it easy t
 
 ### Update interactions
 
-React entry files and section modules live in:
+Slider behavior, counters, smooth scrolling, form feedback, and active navigation highlighting live in:
 
 ```text
-src/main.jsx
-src/App.jsx
-src/components/Navigation.jsx
-src/components/Hero.jsx
-src/components/About.jsx
-src/components/Products.jsx
-src/components/Services.jsx
-src/components/Contact.jsx
-src/enhancements.js
+assets/js/main.js
 ```
 
 Keep JavaScript unobtrusive by attaching behavior through selectors and event listeners rather than inline HTML handlers.
@@ -167,17 +154,6 @@ This repository follows a maintainable static-site approach:
 - Use accessible labels, descriptive alt text, and clear CTA wording.
 - Validate local references before deployment.
 - Format code before committing changes.
-
-## Vercel Deployment
-
-This project is a static site. For Vercel, `npm run build` runs the Vite production build and emits the site into `dist/`. The Vite config also copies the `images/` directory into `dist/images/` so all existing product and service images continue to load.
-
-```json
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist"
-}
-```
 
 ## Deployment
 
