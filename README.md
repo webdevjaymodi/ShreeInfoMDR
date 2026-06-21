@@ -37,8 +37,8 @@ ShreeInfoMDR/
 │   └── css/
 │       └── style.css      # Brand theme, layouts, responsive styling, utilities
 ├── src/
-│   ├── components/        # React presentation components
-│   ├── data/              # Page markup/data modules
+│   ├── components/        # React section components
+│   ├── data/              # Section markup/data modules
 │   ├── App.jsx            # React application shell
 │   ├── enhancements.js    # Browser behavior and integrations
 │   └── main.jsx           # React/Vite entry point
@@ -129,12 +129,17 @@ Primary CSS variables are defined at the top of the stylesheet, making it easy t
 
 ### Update interactions
 
-React entry files and page modules live in:
+React entry files and section modules live in:
 
 ```text
 src/main.jsx
 src/App.jsx
-src/components/StaticPage.jsx
+src/components/Navigation.jsx
+src/components/Hero.jsx
+src/components/About.jsx
+src/components/Products.jsx
+src/components/Services.jsx
+src/components/Contact.jsx
 src/enhancements.js
 ```
 
