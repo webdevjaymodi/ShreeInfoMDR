@@ -10,7 +10,7 @@ This website presents Shree Infotech as a professional local technology partner 
 
 - **Modern responsive UI** built with Bootstrap 5 and custom brand styling.
 - **Clean asset architecture** with HTML, CSS, and JavaScript separated into dedicated files.
-- **Vue-powered hero image slider** with automatic rotation and manual dot navigation.
+- **Hero image slider** with automatic rotation and manual dot navigation.
 - **Product and service showcase** with lazy-loaded images for better page performance.
 - **Animated counters and scroll effects** using AOS and Intersection Observer.
 - **WhatsApp-first inquiry flow** for fast customer communication.
@@ -24,7 +24,7 @@ This website presents Shree Infotech as a professional local technology partner 
 | ------------ | ------------------------------- |
 | Markup       | HTML5                           |
 | Styling      | CSS3, Bootstrap 5, Google Fonts |
-| Interactions | Vue 3, Vanilla JavaScript       |
+| Interactions | Vanilla JavaScript              |
 | Icons        | Font Awesome                    |
 | Animations   | AOS, Swiper                     |
 | Deployment   | Static hosting compatible       |
@@ -124,7 +124,7 @@ Primary CSS variables are defined at the top of the stylesheet, making it easy t
 
 ### Update interactions
 
-Vue app state, slider behavior, counters, smooth scrolling, form feedback, and active navigation highlighting live in:
+Slider behavior, counters, smooth scrolling, form feedback, and active navigation highlighting live in:
 
 ```text
 assets/js/main.js
@@ -154,17 +154,6 @@ This repository follows a maintainable static-site approach:
 - Use accessible labels, descriptive alt text, and clear CTA wording.
 - Validate local references before deployment.
 - Format code before committing changes.
-
-## Vercel Deployment
-
-This project is a static site. For Vercel, `npm run build` copies `index.html`, `assets/`, and `images/` into a generated `public/` directory, and `vercel.json` points Vercel to that output folder. This prevents the “No Output Directory named public” deployment error while keeping source files clean at the repository root.
-
-```json
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": "public"
-}
-```
 
 ## Deployment
 
