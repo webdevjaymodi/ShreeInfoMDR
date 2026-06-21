@@ -1,0 +1,22 @@
+{
+  "name": "shree-info-mdr",
+  "version": "1.0.0",
+  "description": "Shree Infotech - IT Solutions Provider in Mundra, Gujarat",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build required'",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "it-solutions",
+    "laptop-repair",
+    "mundra"
+  ],
+  "author": "Shree Infotech",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1",
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}

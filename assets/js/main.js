@@ -1,61 +1,48 @@
-// ── Third-party animation setup
-if (window.AOS) {
-  AOS.init({ duration: 700, once: true, offset: 80 });
-}
+// ── Init AOS
+AOS.init({ duration: 700, once: true, offset: 80 });
 
 // ── Navbar scroll effect
 const nav = document.getElementById("mainNav");
-const backToTop = document.getElementById("backToTop");
-function syncScrollState() {
-  if (nav) nav.classList.toggle("scrolled", window.scrollY > 60);
-  if (backToTop) backToTop.classList.toggle("show", window.scrollY > 400);
-}
-window.addEventListener("scroll", syncScrollState, { passive: true });
-syncScrollState();
+window.addEventListener("scroll", () => {
+  nav.classList.toggle("scrolled", window.scrollY > 60);
+  document
+    .getElementById("backToTop")
+    .classList.toggle("show", window.scrollY > 400);
+});
 
 // ── Hero Slider
 let currentSlide = 0;
 const slides = document.querySelectorAll(".hero-slide");
 const dots = document.querySelectorAll(".hero-dot");
 function goSlide(n) {
-  if (!slides.length || !dots.length) return;
   slides[currentSlide].classList.remove("active");
   dots[currentSlide].classList.remove("active");
-  dots[currentSlide].setAttribute("aria-current", "false");
   currentSlide = n;
   slides[currentSlide].classList.add("active");
   dots[currentSlide].classList.add("active");
-  dots[currentSlide].setAttribute("aria-current", "true");
 }
 dots.forEach((dot, index) => {
-  dot.setAttribute(
-    "aria-current",
-    dot.classList.contains("active") ? "true" : "false",
-  );
   dot.addEventListener("click", () => goSlide(index));
 });
-if (slides.length > 1) {
-  setInterval(() => goSlide((currentSlide + 1) % slides.length), 5000);
-}
+setInterval(() => goSlide((currentSlide + 1) % slides.length), 5000);
 
 // ── Swiper Testimonials
-if (window.Swiper) {
-  new Swiper(".testiSwiper", {
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 24,
-    autoplay: { delay: 4000, disableOnInteraction: false },
-    pagination: { el: ".swiper-pagination", clickable: true },
-    breakpoints: {
-      768: { slidesPerView: 2 },
-    },
-  });
-}
+new Swiper(".testiSwiper", {
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 24,
+  autoplay: { delay: 4000, disableOnInteraction: false },
+  pagination: { el: ".swiper-pagination", clickable: true },
+  breakpoints: {
+    768: { slidesPerView: 2 },
+  },
+});
 
 // ── Counter Animation
 function animateCounter(el) {
   const target = parseFloat(el.dataset.target);
   const decimals = Number(el.dataset.decimals || 0);
+  const target = parseInt(el.dataset.target);
   const duration = 2000;
   const step = target / (duration / 16);
   let current = 0;
@@ -65,25 +52,22 @@ function animateCounter(el) {
       minimumFractionDigits: decimals,
       maximumFractionDigits: decimals,
     });
+    el.textContent = Math.floor(current).toLocaleString();
     if (current >= target) clearInterval(timer);
   }, 16);
 }
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          animateCounter(e.target);
-          observer.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.5 },
-  );
-  document.querySelectorAll(".counter").forEach((el) => observer.observe(el));
-} else {
-  document.querySelectorAll(".counter").forEach(animateCounter);
-}
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        observer.unobserve(e.target);
+      }
+    });
+  },
+  { threshold: 0.5 },
+);
+document.querySelectorAll(".counter").forEach((el) => observer.observe(el));
 
 // ── Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
@@ -109,21 +93,16 @@ if (contactForm && formSuccess) {
 }
 
 // ── Footer year
-const yearEl = document.getElementById("yr");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+document.getElementById("yr").textContent = new Date().getFullYear();
 
 // ── Active nav link on scroll
 const sections = document.querySelectorAll('section[id], div[id="hero"]');
-window.addEventListener(
-  "scroll",
-  () => {
-    let current = "";
-    sections.forEach((s) => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    document.querySelectorAll(".nav-link").forEach((l) => {
-      l.classList.toggle("active", l.getAttribute("href") === "#" + current);
-    });
-  },
-  { passive: true },
-);
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach((s) => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  document.querySelectorAll(".nav-link").forEach((l) => {
+    l.classList.toggle("active", l.getAttribute("href") === "#" + current);
+  });
+});
